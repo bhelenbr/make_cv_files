@@ -1,3 +1,11 @@
+*
+!.gitignore
+!Awards/*.xlsx
+!make_cv
+!Proposals\ \&\ Grants/*.xlsx
+!Scholarship/*.xlsx
+!Scholarship/scholarship.bib
+!Service/*.xlsx
+!Teaching/*.xlsx
 make_cv/Backups/*
-.DS_Store
 
