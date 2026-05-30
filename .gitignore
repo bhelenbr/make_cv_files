@@ -1,2 +1,3 @@
-*
-!.gitignore
+make_cv/Backups/*
+.DS_Store
+
