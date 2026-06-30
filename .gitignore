@@ -1,7 +1,8 @@
-*
+/*/
+!/make_cv/
+.DS_Store
 !.gitignore
 !Awards/*.xlsx
-!make_cv/*
 !Proposals\ \&\ Grants/*.xlsx
 !Scholarship/*.xlsx
 !Scholarship/scholarship.bib

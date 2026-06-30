@@ -1,0 +1,43 @@
+% Eliminate some of the CurVe stuff
+\RequirePackage{CurveModifcations}
+
+\prefix{}  % eliminate prefix marker
+\renewcommand{\tablehead}{\endfirsthead} % eliminate table conitnuation headers
+\renewcommand{\tablecontinue}[1]{}
+\renewcommand{\conthead}[1]{}
+\subrubricfont{\sffamily}
+\renewcommand{\arraystretch}{1.15}
+
+\def\@@rubrichead#1{\large{\bf \underline{#1}}% 
+  \vspace\rubricspace%
+}
+
+% This is to eliminate the continuation headers and add pdf bookmarks
+\renewenvironment{rubric}[1]{%
+\stepcounter{BookmarkCounter}%
+\pdfbookmark[-1]{#1}{note\theBookmarkCounter} %
+    \def\raggedright{%
+        \@rightskip\@flushglue\rightskip\@rightskip\leftskip\z@skip}%
+    \def\raggedleft{%
+        \rightskip\z@skip\leftskip\@flushglue\parfillskip\z@skip}%
+    \gdef\@beforespace{0pt}%
+    \gdef\@nextentry{}%
+    \gdef\@previouskey{}%
+    \global\let\old@newpage\newpage%
+    \global\let\old@pagebreak\pagebreak%
+    \global\let\old@nopagebreak\nopagebreak
+    \begin{longtable}{@{}kl@{~}X@{}}
+        \@rubrichead{#1}\\*[\rubricspace]
+        \endfirsthead
+        \noalign{\@rubricmark{#1}%
+            \global\let\in@newpage\newpage%
+            \global\let\in@pagebreak\pagebreak%
+            \global\let\in@nopagebreak\nopagebreak%
+            \gdef\newpage{\@nextentry\noalign{\gdef\@nextentry{}}\in@newpage}
+            \gdef\pagebreak{\@nextentry\noalign{\gdef\@nextentry{}}\in@pagebreak}
+            \gdef\nopagebreak{\@nextentry\noalign{\gdef\@nextentry{}}\in@nopagebreak}}}{%
+        \@nextentry
+    \end{longtable}\par\vspace\rubricafterspace
+    \global\let\newpage\old@newpage%
+    \global\let\pagebreak\old@pagebreak%
+    \global\let\nopagebreak\old@nopagebreak}

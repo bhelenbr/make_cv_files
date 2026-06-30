@@ -1,0 +1,52 @@
+\RequirePackage{ifthen}
+
+% Booleans for turning things on/off
+\newboolean{usePhoto}
+\newboolean{Journal}
+\newboolean{arXiv}
+\newboolean{Refereed}
+\newboolean{Book}
+\newboolean{Conference}
+\newboolean{Patent}
+\newboolean{Invited}
+\newboolean{PersonalAwards}
+\newboolean{StudentAwards}
+\newboolean{Service}
+\newboolean{Reviews}
+\newboolean{ProfDevelopment}
+\newboolean{GradAdvisees}
+\newboolean{UndergradResearch}
+\newboolean{Teaching}
+\newboolean{Grants}
+\newboolean{Proposals}
+\newboolean{Admin}
+\newboolean{Credentials}
+\newboolean{References}
+
+% Defaults for booleans (don't change here)
+\setboolean{usePhoto}{false}
+\setboolean{Journal}{true}
+\setboolean{arXiv}{false}
+\setboolean{Refereed}{true}
+\setboolean{Book}{true}
+\setboolean{Conference}{true}
+\setboolean{Patent}{true}
+\setboolean{Invited}{true}
+\setboolean{PersonalAwards}{true}
+\setboolean{StudentAwards}{true}
+\setboolean{Service}{true}
+\setboolean{Reviews}{true}
+\setboolean{ProfDevelopment}{true}
+\setboolean{GradAdvisees}{true}
+\setboolean{UndergradResearch}{true}
+\setboolean{Teaching}{true}
+\setboolean{Grants}{true}
+\setboolean{Proposals}{true}
+\setboolean{Admin}{true}
+\setboolean{Credentials}{true}
+\setboolean{References}{true}
+
+% Load file to change booleans
+\IfFileExists{exclusions.tex} {
+\input{exclusions.tex}
+}{}

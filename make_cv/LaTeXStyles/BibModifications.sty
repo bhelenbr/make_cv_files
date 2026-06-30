@@ -1,0 +1,68 @@
+%%%%% CHANGE TO BIBLIOGRAPHY OUTPUT %%%%%%%%%%%%%%%%%%
+ % If you need to further customise your biblatex setup e.g. with \DeclareFieldFormat etc 
+ % please add them here AFTER loading settings.sty. 
+ % For example, to remove the default   "[Online] Available:" prefix before URLs when using the IEEE style:
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+\RequirePackage{xstring} % to compare strings 
+
+ % Implement the colored circle in the bibliography
+\newcounter{bibitem}
+\AtBeginBibliography{\setcounter{bibitem}{1}}
+
+% Remove url field if doi is defined
+\AtEveryBibitem{\iffieldundef{doi}{}{\clearfield{url}}}
+\AtEveryCite{\iffieldundef{doi}{}{\clearfield{url}}}
+\AtEveryCitekey{\iffieldundef{doi}{}{\clearfield{url}}}
+
+\defbibfilter{booksandchapters}{%
+( type=book or type=incollection )
+}
+
+% Modifications to allow bolding of names in bibliography
+% Modified to select by lastname, firstinitial 
+\RequirePackage{pgffor}
+\newcommand{\mynames}[1]{\def\my@namelist{#1}}
+\newtoggle{boldname}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist {%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\IfBeginWith{\namepartgiven}{\my@gname}}}  % test {\ifdefstrequal{\namepartgiven}{\my@gname}}}. % If you need more control
+      {\global\toggletrue{boldname}}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1}}{#1}%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist{%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\IfBeginWith{\namepartgiven}{\my@gname}}}  %  test {\ifdefstrequal{\namepartgiven}{\my@gname}}} % If you need more control
+      {\global\toggletrue{boldname}\breakforeach}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1} }{#1}%
+}
+
+% Avoid breaking of references across pages
+\usepackage{etoolbox}  % <============================ to patch penaltys
+\patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}     % no orphans
+\patchcmd{\thebibliography}{\widowpenalty4000}{\widowpenalty10000}{}{}   % no widows
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{} % no break of entry
+
+% This adds the field citations to the bibliography data so I can add the number of citaitons
+\begin{filecontents}{biblatex-dm.cfg}
+\DeclareDatamodelFields[type=field, datatype=integer, nullok=true]{citations}
+\DeclareDatamodelEntryfields{citations}
+\end{filecontents}
+
+\renewbibmacro*{finentry}{
+\printfield{citations}%
+\finentry}
+\DeclareFieldFormat{citations}{\mkbibbrackets{#1}}
+
+% command to label students in bibliography
+\providecommand{\us}{\textsuperscript{*}}
+\providecommand{\gs}{\textsuperscript{+}}
+\providecommand{\un}[1]{}

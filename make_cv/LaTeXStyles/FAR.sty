@@ -1,0 +1,58 @@
+\RequirePackage{Settings}
+
+\usepackage[tiny]{titlesec}
+
+% Make sure tables always span the page width
+\keepXColumns
+% Remove annoying line space before table
+\setlength\LTpre{0in}
+
+% This puts a little extra space in the  tables
+\setlength{\extrarowheight}{2.5pt}
+% Add counter for rows of tables
+\newcounter{rowcnt}
+\newcommand\rownum{\ifnumequal{\value{rowcnt}}{0}{}{\therowcnt.}\stepcounter{rowcnt}}
+\AtEndEnvironment{tabularx}{\setcounter{rowcnt}{0}}
+
+% Allow text to be rough at the bottom for better page splits
+\raggedbottom
+
+% Change the section spacing for better headings
+%\titlespacing*{⟨command ⟩}{⟨left ⟩}{⟨before-sep ⟩}{⟨after-sep ⟩}
+\titlespacing*{\section}{0cm}{*2.5}{*0.5}
+
+\newcommand{\printhead}[1]{#1}
+\newcommand{\conthead}[1]{#1 (continued)}
+
+\newcommand{\tablecontinue}[1]{\multicolumn{4}{l}{\conthead{#1}}\endhead\cline{2-4}}
+\newcommand{\tablehead}{\endfirsthead}
+
+% Remove the "In" from journal citations
+\renewbibmacro*{in:}{%
+  \setunit{\addcomma\space}%
+  \ifentrytype{article}
+    {}
+    {\printtext{%
+       \bibstring{in}\intitlepunct}}}
+
+% Change volume, number format
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit*{\addcomma\addspace}%
+  \iffieldundef{number}{}{%
+  \printtext{no\adddot\addspace}%
+  }%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+
+
+% Eliminate header commands so can use ContactInfo.tex to load bold name command
+\newcommand{\leftheader}[1]{}
+\newcommand{\rightheader}[1]{}
+\newcommand{\photo}[2][r]{}
+\newcommand{\photoscale}[1]{}
+
+%% CV Header Info
+% Just to get name that should be bolded
+\input{\biodir/ContactInfo}

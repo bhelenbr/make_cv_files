@@ -1,0 +1,47 @@
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+\RequirePackage{ltablex} % longtable/tabularx
+\RequirePackage[nohead,nofoot,hmargin=2.25cm,vmargin=2cm]{geometry}
+%\RequirePackage{babel} % for managing multiple language formats
+%\RequirePackage{csquotes} % for formatting quotes (recommended for babel)
+\RequirePackage[colorlinks=true,allcolors=blue,breaklinks=true]{hyperref} % I link the links to be blue so people know they are links make black if you don't like that
+
+\newcommand{\getbasename}[2]{%
+% #1 = full path
+% #2 = macro to store basename
+    \filename@parse{#1}%
+    \edef#2{\filename@base}%
+}
+
+ % Define the includeCheck command
+% optional argument is name of boolean  (defaults to base filename of second argument)
+% second argument is the stem of the tex filename to check exists (everything but .tex)
+% Third argument is the content to include (usually an \input{filename.tex})
+\NewDocumentCommand\includeCheck{O{#2} m m}{
+\getbasename{#1}{\bname}
+\ifthenelse{\boolean{\bname}}{%
+  \IfFileExists{#2.tex}{%
+        #3%
+  }%
+  }{}%
+ }
+
+ % Change enumerate environment so that item's don't break across pages
+\let\saveenumerate\enumerate
+\let\saveendenumerate\endenumerate
+
+\renewenvironment{enumerate}{%
+    \saveenumerate
+    \let\olditem\item
+    \newcommand{\closestep}{}%
+    \renewcommand{\item}{%
+        \closestep
+        \olditem
+        \minipage[t]{\linewidth}%
+        \renewcommand{\closestep}{\endminipage}%
+    }%
+}{%
+    \closestep\saveendenumerate%
+}
+
