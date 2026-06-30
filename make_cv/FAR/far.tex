@@ -1,4 +1,32 @@
-\input{far_header.tex}
+\documentclass[10pt]{article}
+\pagestyle{empty}               % no page numbers, thanks.
+
+% Set page size
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = 0.0 in
+\evensidemargin = 0.0 in
+\topmargin = 0.0 in
+\headheight = 0.0 in
+\headsep = 0.0 in
+\parindent= 0 in  
+
+% Default biblatex style used for the publication list is numeric-comp. If you wish to use a different style or pass other options to biblatex you can change them here. 
+\usepackage[backend=biber,style=numeric-comp,sorting=none,giveninits=true,maxnames=20,eprint=false,isbn=false]{biblatex}
+
+% Add bib file to make bibliography information
+\addbibresource{../../Scholarship/scholarship.bib}
+
+% Style Modifications and Command Definitions
+\makeatletter
+\def\input@path{{../LaTeXStyles/}}
+\makeatother
+
+\usepackage{Settings}
+\usepackage{UnicodeConversion}
+\usepackage{BibModifications}
+\usepackage{BooleanDefinitions}
+\usepackage{FAR}
 
 \title{Faculty Activity Report}
 \author{}

@@ -1,3 +1,4 @@
+\documentclass[letterpaper,11pt,english]{curve}
 %%%%%%%%%%%%%%%
 % LianTze Lim (liantze@gmail.com)
 % This CV example/template is based on my own
@@ -33,19 +34,23 @@
 
 %Contributions to the discipline (e.g., service, publications or presentations)
 
-\documentclass[letterpaper,11pt,english]{curve}
+% Default biblatex style used for the publication list is numeric-comp. If you wish to use a different style or pass other options to biblatex you can change them here. 
+\usepackage[style=ieee,sorting=ydnt,uniquename=init,defernumbers=true,giveninits=true,maxnames=20,eprint=false,isbn=false]{biblatex}
 
-% Uncomment to enable Chinese; needs XeLaTeX
-% \usepackage{ctex}
-
-% Default biblatex style used for the publication list is APA6. If you wish to use a different style or pass other options to biblatex you can change them here. 
-\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true,giveninits=true,maxnames=20,eprint=false,isbn=false}{biblatex}
-
-% Most commands and style definitions are in settings.sty.
-\usepackage{settings}
-
-%% Add Publication List
+% Add bib file to make bibliography information
 \addbibresource{../../Scholarship/scholarship.bib}
+
+% Style Modifications and Command Definitons
+\makeatletter
+\def\input@path{{../LaTeXStyles/}}
+\makeatother
+
+\usepackage{Settings}
+\usepackage{UnicodeConversion}
+\usepackage{CurveModifications}
+\usepackage{BibModifications}
+\usepackage{BooleanDefinitions}
+\usepackage{ABET}
 
 \flavor{abet}
 
