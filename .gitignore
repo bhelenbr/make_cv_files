@@ -1,6 +1,9 @@
 /*/
 !/make_cv/
 .DS_Store
+*.pdf
+*.html
+*.docx
 !.gitignore
 !Awards/*.xlsx
 !Proposals\ \&\ Grants/*.xlsx
