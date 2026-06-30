@@ -2,8 +2,12 @@
 !/make_cv/
 .DS_Store
 *.pdf
-*.html
 *.docx
+Tables_*
+make_cv/Collaborators/collaborators.xlsx
+make_cv/Web/*.html
+make_cv/Web/*.css
+!make_cv/Web/sub_*.css
 !.gitignore
 !Awards/*.xlsx
 !Proposals\ \&\ Grants/*.xlsx
