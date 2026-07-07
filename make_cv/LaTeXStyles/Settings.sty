@@ -49,5 +49,6 @@
 % Remove annoying line space before table
 \setlength\LTpre{0in}
 % Define custom column type for maxwidth column
-\newcolumntype{M}[1]{>{\varwidth}{p{#1}}<\endvarwidth}
+\newcolumntype{V}[1]{>{\begin{varwidth}[t]{#1}}l<{\end{varwidth}}}
+
 
