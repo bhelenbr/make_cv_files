@@ -35,49 +35,68 @@
 \maketitle
 \tableofcontents
 
-\includeCheck{\tabledir/Journal}{
-\section{JOURNAL ARTICLES}
-\input{\tabledir/Journal.tex}
+\includeCheck{\tabledir/arXiv}{
+\section{Preprints}
+\input{\tabledir/arXiv.tex}
 }
 
-\includeCheck{\tabledir/Refereed}{
-\section{REFEREED CONFERENCE PAPERS}
-\input{\tabledir/Refereed.tex}
+\includeCheck{\tabledir/journal}{
+\section{Journal Articles}
+\input{\tabledir/journal.tex}
 }
 
-\includeCheck{\tabledir/Book}{
-\section{BOOKS \& BOOK CHAPTERS}
-\input{\tabledir/Book.tex}
+\includeCheck{\tabledir/refereed}{
+\section{Refereed Conference Papers}
+\input{\tabledir/refereed.tex}
 }
 
-\includeCheck{\tabledir/Conference}{
-\section{CONFERENCES}
-\input{\tabledir/Conference.tex}
+\includeCheck{\tabledir/book}{
+\section{Books \& Book Chapters}
+\input{\tabledir/book.tex}
 }
 
-\includeCheck{\tabledir/Patent}{
-\section{PATENTS}
-\input{\tabledir/Patent.tex}
+\includeCheck{\tabledir/patent}{
+\section{Patents}
+\input{\tabledir/patent.tex}
 }
 
-\includeCheck{\tabledir/Invited}{
-\section{INVITED TALKS}
-\input{\tabledir/Invited.tex}
+\includeCheck{\tabledir/conference}{
+\section{Conferences}
+\input{\tabledir/conference.tex}
 }
 
+\includeCheck{\tabledir/techreport}{
+\section{Technical Reports}
+\input{\tabledir/techreport.tex}
+}
+
+\includeCheck{\tabledir/user1}{
+\section{User-Defined Category 1}
+\input{\tabledir/user1.tex}
+}
+
+\includeCheck{\tabledir/user2}{
+\section{User-Defined Category 2}
+\input{\tabledir/user2.tex}
+}
+
+\includeCheck{\tabledir/invited}{
+\section{Invited Talks}
+\input{\tabledir/invited.tex}
+}
 
 \includeCheck{\tabledir/PersonalAwards}{
-\section{PERSONAL AWARDS}
+\section{Personal Awards}
 \input{\tabledir/PersonalAwards.tex}
 }
 
 \includeCheck{\tabledir/StudentAwards}{
-\section{STUDENT AWARDS}
+\section{Student Awards}
 \input{\tabledir/StudentAwards.tex}
 }
 
 \includeCheck{\tabledir/Service}{
-\section{SERVICE}
+\section{Service}
 \input{\tabledir/Service.tex}
 }
 
@@ -86,12 +105,12 @@
 }{}
 
 \includeCheck{\tabledir/Reviews}{
-\section{REVIEWING}
+\section{Reviewing}
 \input{\tabledir/Reviews.tex}
 }
 
 \IfFileExists{\tabledir/AdviseeCounts.tex}{
-\section{UNDERGRADUATE ADVISING}
+\section{Undergraduate Advising}
 \input{\tabledir/AdviseeCounts.tex}
 \IfFileExists{\tabledir/AdvisingEvals.tex}{
 \input{\tabledir/AdvisingEvals.tex}
@@ -99,17 +118,17 @@
 }{}
 
 \IfFileExists{\tabledir/GradAdvisees.tex}{
-\section{GRADUATE ADVISEES}
+\section{Graduate Advisees}
 \input{\tabledir/GradAdvisees.tex}
 }{}
 
 \includeCheck{\tabledir/UndergradResearch}{
-\section{UNDERGRADUATE RESEARCH}
+\section{Undergraduate Research}
 \input{\tabledir/UndergradResearch.tex}
 }
 
 \includeCheck{\tabledir/Teaching}{
-\section{TEACHING}
+\section{Teaching}
 %\subsection{Teaching Evaluations}
 This table includes all classes taught that had reported teaching evaluations.  Question 19 is ``Overall, how would you rate this instructor?''  Question 20 is ``Overall, how would you rate this course?''. The scores are out of 5 and the University average evaluation is approximately 4.1. 
 \input{\tabledir/Teaching.tex}
@@ -117,21 +136,21 @@ This table includes all classes taught that had reported teaching evaluations.  
 %subsection{Innovative Activities}
 }
 
-%\section{CLINICAL WORK}
+%\section{Clinical Work}
 %Please proviide: job title, workplace info (name, address, supervisor), client populations (including age groups and conditions), average hours per week, and a general description of work.
 %
-%\section{CONSULTING ACTIVITIES}
+%\section{Consulting Activities}
 %Please provide: job title, workplace info (company name, address, supervisor) average hours per week, and a general description of work.
 %
-%\section{OUTREACH ACTIVITIES}
+%\section{Outreach Activities}
 %
-%\section{PROFESSIONAL DEVELOPMENT ACTIVITIES}
+%\section{Professional Development Activities}
 %\subsection{Licensure and Advanced Certification}
 %\subsection{Continuing Education}
 %\subsection{Teaching-Related Professional Development}
 
 \includeCheck{\tabledir/Grants}{
-\section{ACTIVE GRANTS}
+\section{Active Grants}
 \IfFileExists{\tabledir/Expenditures.tex}{
 \input{\tabledir/Expenditures.tex}
 }{}
@@ -139,14 +158,14 @@ This table includes all classes taught that had reported teaching evaluations.  
 }
 
 \includeCheck{\tabledir/Proposals}{
-\section{PROPOSALS SUBMITTED}
+\section{Proposals Submitted}
 \input{\tabledir/Proposals.tex}
 }
 
 
-%\section{NARRATIVE}
+%\section{Narrative}
 
-%\section{GOALS}
+%\section{Goals}
 
 
 

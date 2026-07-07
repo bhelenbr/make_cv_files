@@ -9,28 +9,43 @@
 
 \nocite{*}
 
-\ifthenelse{\boolean{Journal}}{
+\ifthenelse{\boolean{arXiv}}{
+\printbibliography[heading={contbibnumbered},title={Preprints},keyword=arXiv]
+}{}
+
+\ifthenelse{\boolean{journal}}{
 \printbibliography[heading={contbibnumbered},title={Journal Articles},keyword=journal]
 }{}
 
-\ifthenelse{\boolean{Refereed}}{
+\ifthenelse{\boolean{refereed}}{
 \printbibliography[heading={contbibnumbered},title={Refereed Conference Papers},keyword=refereed]
 }{}
 
-
-\ifthenelse{\boolean{Book}}{
+\ifthenelse{\boolean{book}}{
 \printbibliography[heading={contbibnumbered},title={Book Chapters},keyword=book]
 }{}
 
-\ifthenelse{\boolean{Patent}}{
+\ifthenelse{\boolean{patent}}{
 \printbibliography[heading={contbibnumbered},title={Patents},keyword=patent]
 }{}
 
-\ifthenelse{\boolean{Conference}}{
+\ifthenelse{\boolean{conference}}{
 \printbibliography[heading={contbibnumbered},title={Conference Presentations},keyword=conference]
 }{}
 
-\ifthenelse{\boolean{Invited}}{
+\ifthenelse{\boolean{techreport}}{
+\printbibliography[heading={contbibnumbered},title={Technical Reports},keyword=techreport]
+}{}
+
+\ifthenelse{\boolean{user1}}{
+\printbibliography[heading={contbibnumbered},title={User-Defined Category 1},keyword=user1]
+}{}
+
+\ifthenelse{\boolean{user2}}{
+\printbibliography[heading={contbibnumbered},title={User-Defined Category 2},keyword=user2]
+}{}
+
+\ifthenelse{\boolean{invited}}{
 \printbibliography[heading={contbibnumbered},title={Invited Talks},keyword=invited]
 }{}
 

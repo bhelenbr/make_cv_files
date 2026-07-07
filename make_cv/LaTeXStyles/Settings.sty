@@ -2,6 +2,7 @@
 \WarningsOff[longtable]
 \WarningsOff[array]
 \RequirePackage{ltablex} % longtable/tabularx
+\RequirePackage{varwidth} % for minipage with variable width
 \RequirePackage[nohead,nofoot,hmargin=2.25cm,vmargin=2cm]{geometry}
 %\RequirePackage{babel} % for managing multiple language formats
 %\RequirePackage{csquotes} % for formatting quotes (recommended for babel)
@@ -44,4 +45,9 @@
 }{%
     \closestep\saveendenumerate%
 }
+
+% Remove annoying line space before table
+\setlength\LTpre{0in}
+% Define custom column type for maxwidth column
+\newcolumntype{M}[1]{>{\varwidth}{p{#1}}<\endvarwidth}
 
