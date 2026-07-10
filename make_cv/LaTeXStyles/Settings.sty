@@ -19,7 +19,7 @@
 % optional argument is name of boolean  (defaults to base filename of second argument)
 % second argument is the stem of the tex filename to check exists (everything but .tex)
 % Third argument is the content to include (usually an \input{filename.tex})
-\NewDocumentCommand\includeCheck{O{#2} m m}{
+\NewDocumentCommand\includeCheck{O{#2} +m +m}{
 \getbasename{#1}{\bname}
 \ifthenelse{\boolean{\bname}}{%
   \IfFileExists{#2.tex}{%

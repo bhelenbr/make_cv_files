@@ -64,7 +64,10 @@
 
 \makerubrichead{Research Publications}
 In the following a + indicates a graduate advisee, and a * indicates an undergraduate advisee.  The number in brackets is the number of citations as reported by Google Scholar. \par \vspace\rubricspace
-
+\includeCheck{\tabledir/ScholarshipStats}{
+\par \vspace\baselineskip
+\input{\tabledir/ScholarshipStats.tex}
+}
 \nocite{*}
 
 \ifthenelse{\boolean{journal}}{
